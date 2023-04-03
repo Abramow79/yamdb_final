@@ -82,7 +82,9 @@ jobs:
         passphrase: 291203
         script: |
           # Выполняет pull образа c DockerHub
-          # sudo docker pull abramow79/8ec6f623a216f147ea97e04350cfaf67c9375a58aa087a43b09153afc164033f
+
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/infra-web:v1
+          
           # остановка всех контейнеров
           # sudo docker stop $(sudo docker ps -a -q)
           # sudo docker run --rm -d -p 5000:5000 abramow79/8ec6f623a216f147ea97e04350cfaf67c9375a58aa087a43b09153afc164033f
