@@ -61,7 +61,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
-            sudo docker pull abramow79/api_yamdb:latest
+            sudo docker pull abramow79/api_yamdb
             # sudo docker compose stop
             # sudo docker compose rm web
             touch .env
