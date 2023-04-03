@@ -72,10 +72,13 @@ jobs:
     - name: executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
+        # host: ${{ secrets.HOST }}
+        # username: ${{ secrets.USER }}        
+        host: 158.160.59.134
+        username: aap_32
         key: ${{ secrets.SSH_KEY }}
-        passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён 
+        # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён 
+        passphrase: 291203
         script: |
           # Выполняет pull образа c DockerHub
           # sudo docker pull abramow79/8ec6f623a216f147ea97e04350cfaf67c9375a58aa087a43b09153afc164033f
