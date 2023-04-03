@@ -64,6 +64,7 @@ jobs:
           file: ./api_yamdb/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/infra-web:v1
+          
           # ваш-логин-на-docker-hub/ваш-репозиторий-на-docker-hub:latest 
   deploy:
     runs-on: ubuntu-latest
