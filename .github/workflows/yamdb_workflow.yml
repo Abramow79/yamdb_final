@@ -69,38 +69,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
-    if: github.ref == 'refs/heads/main'
     steps:
-    - name: executing remote ssh commands to deploy
-      uses: appleboy/ssh-action@master
-      with:
-        # host: ${{ secrets.HOST }}
-        # username: ${{ secrets.USER }}        
-        host: 158.160.59.134
-        username: aap_32
-        key: ${{ secrets.SSH_KEY }}
-        # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён 
-        passphrase: 291203
-        stack_file_name: docker-compose.yaml
-        script: |
-          # Выполняет pull образа c DockerHub
-
-          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb
-
-          # остановка всех контейнеров
-          # sudo docker stop $(sudo docker ps -a -q)
-          # sudo docker run --rm -d -p 5000:5000 abramow79/8ec6f623a216f147ea97e04350cfaf67c9375a58aa087a43b09153afc164033f
-
-          sudo docker compose stop
-          sudo docker compose rm web
-          touch .env
-          echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
-          echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
-          echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
-          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
-          sudo docker compose up -d
+      - name: executing remote ssh commands to deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+            sudo docker-compose stop
+            sudo docker-compose rm web
+            touch .env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+            sudo docker-compose up -d 
   send_message:
     runs-on: ubuntu-latest
     needs: deploy
