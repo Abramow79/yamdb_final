@@ -80,9 +80,9 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён 
         passphrase: 291203
+        stack_file_name: docker-compose.yaml
         script: |
           # Выполняет pull образа c DockerHub
-
 
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
 
@@ -90,8 +90,8 @@ jobs:
           # sudo docker stop $(sudo docker ps -a -q)
           # sudo docker run --rm -d -p 5000:5000 abramow79/8ec6f623a216f147ea97e04350cfaf67c9375a58aa087a43b09153afc164033f
 
-          sudo docker compose stop
-          sudo docker compose rm web
+          sudo docker-compose stop
+          sudo docker-compose rm web
           touch .env
           echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
           echo DB_NAME=${{ secrets.DB_NAME }} >> .env
