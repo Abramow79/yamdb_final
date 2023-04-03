@@ -60,7 +60,7 @@ jobs:
         # Пуш образа в Docker Hub 
         uses: docker/build-push-action@v2 
         with:
-          context: ./api_yamddb
+          context: ./api_yamdb
           file: ./api_yamdb/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
@@ -83,7 +83,7 @@ jobs:
         script: |
           # Выполняет pull образа c DockerHub
 
-          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/infra-web:v1
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
 
           # остановка всех контейнеров
           # sudo docker stop $(sudo docker ps -a -q)
