@@ -63,7 +63,7 @@ jobs:
           context: ./api_yamddb
           file: ./api_yamdb/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/infra-web:v1
+          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
 
           # ваш-логин-на-docker-hub/ваш-репозиторий-на-docker-hub:latest 
   deploy:
