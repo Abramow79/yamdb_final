@@ -9,7 +9,8 @@ services:
       - .env
   web:
     build:
-        context: ../
+        # context: ../
+        image: abramow79/infra-web:v1
         dockerfile: api_yamdb/Dockerfile
     restart: always
     volumes:
