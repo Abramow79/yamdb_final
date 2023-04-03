@@ -23,14 +23,12 @@ Django 2.2.19
 Docker
 ### # Шаблон наполнения .env файла
 
-Шаблон файла в каталоге ./infra/example.env
-
-	DB_ENGINE=django.db.backends.postgresql # провайдер
-	DB_NAME=postgres		        # имя базы данных
-	POSTGRES_USER=postgres			# пользователь базы данных
-	POSTGRES_PASSWORD=postgres		# пароль пользователя базы данных
-	DB_HOST=db 				# имя хоста баз данных
-	DB_PORT=5432			        # порт для работы с базой данных
+	DB_ENGINE=django.db.backends.postgresql   # провайдер
+	DB_NAME=postgres		                  # имя базы данных
+	POSTGRES_USER=postgres			          # пользователь базы данных
+	POSTGRES_PASSWORD=postgres		          # пароль пользователя базы данных
+	DB_HOST=db 				                  # имя хоста баз данных
+	DB_PORT=5432			                  # порт для работы с базой данных
 
 ### # Запуск проекта в контейнерах Docker
 - Перейдите в раздел infra для сборки docker-compose
