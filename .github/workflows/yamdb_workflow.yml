@@ -84,7 +84,7 @@ jobs:
         script: |
           # Выполняет pull образа c DockerHub
 
-          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/api_yamdb
 
           # остановка всех контейнеров
           # sudo docker stop $(sudo docker ps -a -q)
