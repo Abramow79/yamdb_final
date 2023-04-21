@@ -8,7 +8,11 @@ services:
     env_file:
       - .env
   web:
-    image: abramow79/api_yamdb:latest
+    build:
+        context: ../
+        dockerfile: api_yamdb/Dockerfile
+
+    # image: abramow79/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
