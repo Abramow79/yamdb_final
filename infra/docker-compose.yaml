@@ -11,7 +11,6 @@ services:
     build:
         context: ../
         dockerfile: api_yamdb/Dockerfile
-
     # image: abramow79/api_yamdb:latest
     restart: always
     volumes:
