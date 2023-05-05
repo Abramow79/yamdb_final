@@ -1,5 +1,6 @@
 # yamdb_final
-![yamdb workflow](https://github.com/rezi100r/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+![yamdb workflow](https://github.com/Abramow79/yamdb_final/actions/workflows/main.yml/badge.svg)
+
 
 ## Адрес проекта
 http://158.160.59.134/admin/
